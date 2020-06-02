@@ -1,6 +1,6 @@
 char *morse[] = {".- ", "-... ", "-.-. ", "-.. ", ". ", "..-. ", "--. ", ".... ", ".. ", ".--- ", "-.- ", ".-.. ", "-- ", "-. ", "--- ", ".--. ", "--.- ", ".-. ", "... ", "- ", "..- ", "...- ", ".-- ", "-..- ", "-.-- ", "--.. "};
 char *letters[] = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
-char message[] = "cool";
+char message[] = "usuk";
 char *commands[sizeof(message)];
 const int ledPin = 13;
 
@@ -18,21 +18,16 @@ void setup() {
       }
     }
   }
-
   
   for(int i = 0; i < sizeof(message)-1; i++){
     commands[i] = morse[indexNums[i]];
-//    Serial.println(commands[i]);
   }
 
-  
   for(int i = 0; i < sizeof(message) - 1; i++){
     count += strlen(commands[i]);
   }
-
-  count += sizeof(message)-1;
-//  Serial.println(commands[2][1]);
   
+  count += sizeof(message)-1;  
   
 }
   
@@ -48,7 +43,7 @@ void loop() {
         intComm[count2] = 2;
       }else if (commands[i][j] == ' '){
         intComm[count2] = 3; 
-      }else{Serial.println("error");}
+      }
       count2++;
     }
   }
@@ -74,15 +69,6 @@ void loop() {
   }
 
   digitalWrite(ledPin, LOW);
-  delay(10000);
-
-  
-//  for(int i = 0; i < count; i++){
-//      Serial.println(intComm[i]);
-//  }
+  delay(7000);
 }
   
-//  for(int z = 0; z < sizeof(message)-1; z++) {
-//    Serial.println(commands[z]);
-//    delay(500);  
-//  }
